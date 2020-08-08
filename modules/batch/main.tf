@@ -46,7 +46,7 @@ resource "aws_batch_compute_environment" "test_batch_job_compute_environment" {
     max_vcpus     = 2
 
     instance_role = var.iam_instance_profile.arn
-    instance_type = ["t3.nano", "t3.micro"]
+    instance_type = ["optimal"]
 
     security_group_ids = [var.vpc_test_batch_sg.id]
     subnets            = [var.vpc_test_batch_subnet.id]
