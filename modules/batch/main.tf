@@ -48,8 +48,8 @@ resource "aws_batch_compute_environment" "test_batch_job_compute_environment" {
     instance_role = var.iam_instance_profile.arn
     instance_type = ["optimal"]
 
-    security_group_ids = [var.vpc_test_batch_sg.id]
-    subnets            = [var.vpc_test_batch_subnet.id]
+    security_group_ids = [var.vpc_sg.id]
+    subnets            = [var.vpc_public_subnet.id]
 
     tags = {
       Name = "test_batch_job_${terraform.workspace}"

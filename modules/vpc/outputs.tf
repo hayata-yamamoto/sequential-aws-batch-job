@@ -1,4 +1,4 @@
-output "test_batch_vpc" {
+output "vpc" {
   value = aws_vpc.vpc
 }
 

@@ -11,7 +11,7 @@ resource "aws_subnet" "public_subnet" {
   map_public_ip_on_launch = true
 }
 
-resource "aws_security_group" "test_batch_sg" {
+resource "aws_security_group" "sg" {
   name = "aws_batch_compute_environment_security_group"
 
   egress {

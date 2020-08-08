@@ -3,8 +3,8 @@ module "batch" {
 
   iam_instance_profile   = module.iam.iam_test_batch_instance_profile
   iam_batch_service_role = module.iam.iam_test_batch_service_role
-  vpc_test_batch_sg      = module.vpc.vpc_test_batch_sg
-  vpc_test_batch_subnet  = module.vpc.vpc_test_batch_subnet
+  vpc_sg                 = module.vpc.sg
+  vpc_public_subnet      = module.vpc.public_subnet
 }
 
 module "cloudwatch" {
