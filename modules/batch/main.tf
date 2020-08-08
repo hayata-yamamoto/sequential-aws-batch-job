@@ -51,12 +51,12 @@ resource "aws_batch_compute_environment" "batch_job_compute_environment" {
     tags = {
       Name = "test_batch_job_${terraform.workspace}"
     }
-
-  service_role                    = var.iam_batch_service_role.arn
-  state                           = "ENABLED"
-  type                            = "MANAGED"
-  depends_on = [var.iam_batch_service_role_policy_attachment]
   }
+
+  service_role = var.iam_batch_service_role.arn
+  state        = "ENABLED"
+  type         = "MANAGED"
+  depends_on   = [var.iam_batch_service_role_policy_attachment]
 
   lifecycle {
     create_before_destroy = true
