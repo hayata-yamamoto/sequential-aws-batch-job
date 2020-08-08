@@ -38,8 +38,8 @@ resource "aws_batch_compute_environment" "test_batch_job_compute_environment" {
   type                            = "MANAGED"
 
   compute_resources {
-    type                = "SPOT"
-    allocation_strategy = "SPOT_CAPACITY_OPTIMIZED"
+    type                = "EC2"
+    allocation_strategy = "BEST_FIT"
 
     desired_vcpus = 2
     min_vcpus     = 0
@@ -50,6 +50,14 @@ resource "aws_batch_compute_environment" "test_batch_job_compute_environment" {
 
     security_group_ids = [var.vpc_sg.id]
     subnets            = [var.vpc_public_subnet.id]
+
+    timeout {
+      attempt_duration_seconds = 100
+    }
+
+    lifecycle {
+      create_before_destroy = true
+    }
 
     tags = {
       Name = "test_batch_job_${terraform.workspace}"

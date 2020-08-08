@@ -12,7 +12,7 @@ resource "aws_subnet" "public_subnet" {
 }
 
 resource "aws_security_group" "sg" {
-  name = "batch__security_group"
+  name = "batch_security_group"
 
   egress {
     from_port   = 0
