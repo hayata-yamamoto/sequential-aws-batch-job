@@ -60,6 +60,7 @@ resource "aws_batch_compute_environment" "batch_job_compute_environment" {
 
   lifecycle {
     create_before_destroy = true
+    ignore_changes        = [compute_resources.desired_vcpus]
   }
 
 }
