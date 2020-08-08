@@ -9,5 +9,6 @@ variable "cidr_blocks" {
   default = {
     "vpc"    = "10.1.0.0/16"
     "subnet" = "10.1.0.0/24"
+    "global" = "0.0.0.0/0"
   }
 }

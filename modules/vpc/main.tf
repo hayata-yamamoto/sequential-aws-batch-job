@@ -12,7 +12,7 @@ resource "aws_subnet" "public_subnet" {
 }
 
 resource "aws_security_group" "sg" {
-  name = "aws_batch_compute_environment_security_group"
+  name = "batch__security_group"
 
   egress {
     from_port   = 0
@@ -32,7 +32,7 @@ resource "aws_internet_gateway" "igw" {
 resource "aws_route_table" "rt" {
   vpc_id = aws_vpc.vpc.id
   route {
-    cidr_block = var.cidr_blocks["subnet"]
+    cidr_block = var.cidr_blocks["global"]
     gateway_id = aws_internet_gateway.igw.id
   }
 }
