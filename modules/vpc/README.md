@@ -12,6 +12,7 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| availability\_zone | n/a | `string` | n/a | yes |
 | cidr\_blocks | n/a | `map(string)` | n/a | yes |
 
 ## Outputs

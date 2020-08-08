@@ -3,16 +3,26 @@ resource "aws_vpc" "vpc" {
   enable_dns_support   = true
   enable_dns_hostnames = true
   instance_tenancy     = "default"
+
+  tags = {
+    "Name" = "batch-job"
+  }
 }
 
 resource "aws_subnet" "public_subnet" {
   vpc_id                  = aws_vpc.vpc.id
+  availability_zone       = var.availability_zone
   cidr_block              = var.cidr_blocks["subnet"]
   map_public_ip_on_launch = true
+
+  tags = {
+    "Name" = "batch-job"
+  }
 }
 
 resource "aws_security_group" "sg" {
-  name = "batch_security_group"
+  name   = "batch_security_group"
+  vpc_id = aws_vpc.vpc.id
 
   egress {
     from_port   = 0

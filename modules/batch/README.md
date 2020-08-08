@@ -12,6 +12,8 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| iam\_aws\_batch\_service\_role | n/a | `any` | n/a | yes |
+| iam\_instance\_profile | n/a | `any` | n/a | yes |
 | vpc\_public\_subnet | n/a | `any` | n/a | yes |
 | vpc\_sg | n/a | `any` | n/a | yes |
 
