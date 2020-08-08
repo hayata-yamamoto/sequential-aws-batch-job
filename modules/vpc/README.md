@@ -10,13 +10,15 @@ No requirements.
 
 ## Inputs
 
-No input.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| cidr\_blocks | n/a | `map(string)` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| vpc\_test\_batch\_sg | n/a |
-| vpc\_test\_batch\_subnet | n/a |
-| vpc\_test\_batch\_vpc | n/a |
+| public\_subnet | n/a |
+| sg | n/a |
+| test\_batch\_vpc | n/a |
 

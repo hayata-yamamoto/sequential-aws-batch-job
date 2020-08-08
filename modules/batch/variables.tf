@@ -1,5 +1,5 @@
 variable "iam_instance_profile" {}
 variable "iam_batch_service_role" {}
 
-variable "vpc_test_batch_sg" {}
-variable "vpc_test_batch_subnet" {}
+variable "vpc_sg" {}
+variable "vpc_public_subnet" {}
