@@ -47,8 +47,3 @@ resource "aws_iam_role" "batch_service_role" {
   name               = "batch_service_role"
   assume_role_policy = data.aws_iam_policy_document.batch_service_role_policy_document.json
 }
-
-resource "aws_iam_role_policy_attachment" "batch_service_role_attachment" {
-  role       = aws_iam_role.batch_service_role.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole"
-}

@@ -30,6 +30,11 @@ resource "aws_batch_job_definition" "batch_jobB" {
 CONTAINER_PROPERTIES
 }
 
+resource "aws_iam_role_policy_attachment" "batch_service_role_attachment" {
+  role       = var.iam_batch_service_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole"
+}
+
 
 resource "aws_batch_compute_environment" "batch_job_compute_environment" {
   compute_environment_name_prefix = "batch_job_"
@@ -56,7 +61,7 @@ resource "aws_batch_compute_environment" "batch_job_compute_environment" {
   service_role = var.iam_batch_service_role.arn
   state        = "ENABLED"
   type         = "MANAGED"
-  depends_on   = [var.iam_batch_service_role_policy_attachment]
+  depends_on   = [aws_iam_role_policy_attachment.batch_service_role_attachment]
 
   lifecycle {
     ignore_changes = [compute_resources[0].desired_vcpus]
