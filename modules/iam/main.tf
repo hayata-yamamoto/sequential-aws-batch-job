@@ -44,7 +44,7 @@ data "aws_iam_policy_document" "batch_service_role_policy_document" {
 }
 
 resource "aws_iam_role" "batch_service_role" {
-  name               = "aws_batch_service_role"
+  name               = "batch_service_role"
   assume_role_policy = data.aws_iam_policy_document.batch_service_role_policy_document.json
 }
 
