@@ -3,7 +3,7 @@ output "vpc" {
 }
 
 output "public_subnet" {
-  value = aws_subnet.subnet
+  value = aws_subnet.public_subnet
 }
 
 output "sg" {
