@@ -64,7 +64,7 @@ resource "aws_batch_compute_environment" "batch_job_compute_environment" {
   depends_on   = [aws_iam_role_policy_attachment.batch_service_role_attachment]
 
   lifecycle {
-    ignore_changes = compute_resources
+    ignore_changes = [compute_resources]
   }
 
 }
