@@ -20,5 +20,5 @@ No requirements.
 |------|-------------|
 | public\_subnet | n/a |
 | sg | n/a |
-| test\_batch\_vpc | n/a |
+| vpc | n/a |
 
