@@ -12,7 +12,7 @@ No provider.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| region | n/a | `string` | `"ap-northeast-1"` | no |
+| region | aws region | `string` | `"ap-northeast-1"` | no |
 
 ## Outputs
 

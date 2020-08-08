@@ -39,7 +39,7 @@ resource "aws_batch_compute_environment" "test_batch_job_compute_environment" {
 
   compute_resources {
     type                = "SPOT"
-    allocation_strategy = "BEST_FIT_PROGRESSIVE"
+    allocation_strategy = "SPOT_CAPACITY_OPTIMIZED"
 
     desired_vcpus = 2
     min_vcpus     = 0
