@@ -15,7 +15,7 @@ data "aws_iam_policy_document" "instance_role_policy_document" {
 
 resource "aws_iam_role" "instance_role" {
   name               = "instance_role"
-  assume_role_policy = data.aws_iam_policy_document.batch_instance_role_policy_document.json
+  assume_role_policy = data.aws_iam_policy_document.instance_role_policy_document.json
 }
 
 resource "aws_iam_role_policy_attachment" "instance_role_attachment" {
@@ -100,7 +100,7 @@ resource "aws_batch_compute_environment" "batch_job_compute_environment" {
     min_vcpus     = 0
     max_vcpus     = 2
 
-    instance_role = aws_iam_instance_profile.aws_batch_instance_profile.arn
+    instance_role = aws_iam_instance_profile.instance_profile.arn
     instance_type = ["optimal"]
 
     security_group_ids = [var.vpc_sg.id]
