@@ -1,5 +1,5 @@
-resource "aws_batch_job_definition" "test_batch_jobA" {
-  name                 = "test_batch_jobA"
+resource "aws_batch_job_definition" "batch_jobA" {
+  name                 = "batch_jobA"
   type                 = "container"
   container_properties = <<CONTAINER_PROPERTIES
 {
@@ -14,8 +14,8 @@ resource "aws_batch_job_definition" "test_batch_jobA" {
 CONTAINER_PROPERTIES
 }
 
-resource "aws_batch_job_definition" "test_batch_jobB" {
-  name                 = "test_batch_jobB"
+resource "aws_batch_job_definition" "batch_jobB" {
+  name                 = "batch_jobB"
   type                 = "container"
   container_properties = <<CONTAINER_PROPERTIES
 {
@@ -31,11 +31,8 @@ CONTAINER_PROPERTIES
 }
 
 
-resource "aws_batch_compute_environment" "test_batch_job_compute_environment" {
-  compute_environment_name_prefix = "test_batch_job_"
-  service_role                    = var.iam_batch_service_role.arn
-  state                           = "ENABLED"
-  type                            = "MANAGED"
+resource "aws_batch_compute_environment" "batch_job_compute_environment" {
+  compute_environment_name_prefix = "batch_job_"
 
   compute_resources {
     type                = "EC2"
@@ -54,6 +51,11 @@ resource "aws_batch_compute_environment" "test_batch_job_compute_environment" {
     tags = {
       Name = "test_batch_job_${terraform.workspace}"
     }
+
+  service_role                    = var.iam_batch_service_role.arn
+  state                           = "ENABLED"
+  type                            = "MANAGED"
+  depends_on = [var.iam_batch_service_role_policy_attachment]
   }
 
   lifecycle {
@@ -62,11 +64,11 @@ resource "aws_batch_compute_environment" "test_batch_job_compute_environment" {
 
 }
 
-resource "aws_batch_job_queue" "test_batch_job_queue" {
-  name     = "test_batch_job_queue"
+resource "aws_batch_job_queue" "batch_job_queue" {
+  name     = "batch_job_queue"
   state    = "ENABLED"
   priority = 1
   compute_environments = [
-    aws_batch_compute_environment.test_batch_job_compute_environment.arn
+    aws_batch_compute_environment.batch_job_compute_environment.arn
   ]
 }
