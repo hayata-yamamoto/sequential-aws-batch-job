@@ -1,12 +1,12 @@
-# module "batch" {
-#   source = "../../modules/batch/"
+module "batch" {
+  source = "../../modules/batch/"
 
-#   iam_instance_profile   = module.iam.batch_instance_profile
-#   iam_batch_service_role = module.iam.batch_service_role
+  iam_instance_profile   = module.iam.batch_instance_profile
+  iam_batch_service_role = module.iam.batch_service_role
 
-#   vpc_sg            = module.vpc.sg
-#   vpc_public_subnet = module.vpc.public_subnet
-# }
+  vpc_sg            = module.vpc.sg
+  vpc_public_subnet = module.vpc.public_subnet
+}
 
 module "cloudwatch" {
   source = "../../modules/cloudwatch/"
