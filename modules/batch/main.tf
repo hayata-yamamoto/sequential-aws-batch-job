@@ -56,10 +56,6 @@ resource "aws_batch_compute_environment" "test_batch_job_compute_environment" {
     }
   }
 
-  timeout {
-    attempt_duration_seconds = 100
-  }
-
   lifecycle {
     create_before_destroy = true
   }
