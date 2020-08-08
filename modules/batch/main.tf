@@ -100,7 +100,7 @@ resource "aws_batch_compute_environment" "batch_job_compute_environment" {
     min_vcpus     = 0
     max_vcpus     = 2
 
-    instance_role = aws_iam_instance_profile.batch_instance_profile.arn
+    instance_role = aws_iam_instance_profile.aws_batch_instance_profile.arn
     instance_type = ["optimal"]
 
     security_group_ids = [var.vpc_sg.id]
@@ -111,7 +111,7 @@ resource "aws_batch_compute_environment" "batch_job_compute_environment" {
     }
   }
 
-  service_role = aws_iam_role.batch_service_role.arn
+  service_role = aws_iam_role.aws_batch_service_role.arn
   state        = "ENABLED"
   type         = "MANAGED"
   depends_on   = [aws_iam_role_policy_attachment.aws_batch_service_role_attachment]
