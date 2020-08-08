@@ -49,7 +49,7 @@ resource "aws_batch_compute_environment" "batch_job_compute_environment" {
     subnets            = [var.vpc_public_subnet.id]
 
     tags = {
-      Name = "test_batch_job_${terraform.workspace}"
+      Name = "batch_job"
     }
   }
 
