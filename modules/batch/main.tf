@@ -32,7 +32,7 @@ CONTAINER_PROPERTIES
 
 
 resource "aws_batch_compute_environment" "test_batch_job_compute_environment" {
-  compute_environment_name_prefix = "test_batch_job"
+  compute_environment_name_prefix = "test_batch_job_"
   service_role                    = var.iam_batch_service_role.arn
   state                           = "ENABLED"
   type                            = "MANAGED"
