@@ -20,7 +20,8 @@ module "lambda" {
 
 }
 
-module vpc {
-  source = "../../modules/vpc/"
+module "vpc" {
+  source      = "../../modules/vpc/"
+  cidr_blocks = var.cidr_blocks
 }
 
