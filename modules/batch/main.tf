@@ -51,18 +51,19 @@ resource "aws_batch_compute_environment" "test_batch_job_compute_environment" {
     security_group_ids = [var.vpc_sg.id]
     subnets            = [var.vpc_public_subnet.id]
 
-    timeout {
-      attempt_duration_seconds = 100
-    }
-
-    lifecycle {
-      create_before_destroy = true
-    }
-
     tags = {
       Name = "test_batch_job_${terraform.workspace}"
     }
   }
+
+  timeout {
+    attempt_duration_seconds = 100
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
 }
 
 resource "aws_batch_job_queue" "test_batch_job_queue" {
