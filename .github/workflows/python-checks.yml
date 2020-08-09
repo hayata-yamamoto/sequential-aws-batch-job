@@ -12,6 +12,7 @@ jobs:
         WORK_DIR: ["./modules/aws/lambda/functions/batch_job_function"]
     steps:
       - uses: actions/checkout@v2
+
       - name: Setup python
         uses: actions/setup-python@v2
         with:
@@ -41,3 +42,9 @@ jobs:
             --show-error-context \
             --pretty \
             src
+
+      - name: Zip archiving check
+        working-directory: $ {{ matrix.WORK_DIR }}
+        run: \
+          zip -rj compare.zip build/function/src/
+          diff compare.zip function.zip

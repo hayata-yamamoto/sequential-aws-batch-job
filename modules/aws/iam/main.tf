@@ -76,11 +76,8 @@ data "aws_iam_policy_document" "lambda_function_role_policy_document" {
       "logs:PutLogEvents",
       "batch:SubmitJob"
     ]
-    resources = [
-      "arn:aws:logs:*:*:*",
-      var.batch_job_queue.arn
-    ]
-    effect = "Allow"
+    resources = ["*"]
+    effect    = "Allow"
   }
 }
 
