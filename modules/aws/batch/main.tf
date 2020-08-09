@@ -1,37 +1,31 @@
-resource "aws_batch_job_definition" "batch_jobA" {
-  name                 = "batch_jobA"
+resource "aws_batch_job_definition" "jobA" {
+  name                 = "jobA"
   type                 = "container"
   container_properties = <<CONTAINER_PROPERTIES
 {
-    "command": ["echo", "$JobName"],
+    "command": ["echo", "JobA"],
     "image": "bash:latest",
     "memory": 500,
-    "environment": [
-      {"name": "JobName", "value": "JobA"}
-    ],
     "vcpus": 1
 }
 CONTAINER_PROPERTIES
 }
 
-resource "aws_batch_job_definition" "batch_jobB" {
-  name                 = "batch_jobB"
+resource "aws_batch_job_definition" "jobB" {
+  name                 = "jobB"
   type                 = "container"
   container_properties = <<CONTAINER_PROPERTIES
 {
-    "command": ["echo", "$JobName"],
+    "command": ["echo", "JobB"],
     "image": "bash:latest",
     "memory": 500,
-    "environment": [
-      {"name": "JobName", "value": "JobB"}
-    ],
     "vcpus": 1
 }
 CONTAINER_PROPERTIES
 }
 
 
-resource "aws_batch_compute_environment" "batch_job_compute_environment" {
+resource "aws_batch_compute_environment" "compute_environment" {
   compute_environment_name_prefix = "batch_job_"
 
   compute_resources {
@@ -64,11 +58,11 @@ resource "aws_batch_compute_environment" "batch_job_compute_environment" {
 
 }
 
-resource "aws_batch_job_queue" "batch_job_queue" {
+resource "aws_batch_job_queue" "job_queue" {
   name     = "batch_job_queue"
   state    = "ENABLED"
   priority = 1
   compute_environments = [
-    aws_batch_compute_environment.batch_job_compute_environment.arn
+    aws_batch_compute_environment.compute_environment.arn
   ]
 }

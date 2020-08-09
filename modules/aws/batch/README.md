@@ -21,8 +21,8 @@ No requirements.
 
 | Name | Description |
 |------|-------------|
-| batch\_compute\_environment | n/a |
-| batch\_job\_definition\_a | n/a |
-| batch\_job\_definition\_b | n/a |
-| batch\_job\_queue | n/a |
+| compute\_environment | n/a |
+| job\_a\_definition | n/a |
+| job\_b\_definition | n/a |
+| job\_queue | n/a |
 
