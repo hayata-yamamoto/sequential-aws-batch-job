@@ -5,7 +5,7 @@ on:
 
 jobs:
   checks:
-    runs-on: ubuntu-latest
+    runs-on: unbuntu-16.04
     strategy:
       matrix:
         PYTHON_VERSION: [3.6, 3.7, 3.8]
@@ -46,8 +46,8 @@ jobs:
       - name: Zip archiving check
         working-directory: ${{ matrix.WORK_DIR }}
         run: \
-          apt-get update
-          apt-get install -y zip
+          sudo apt-get update
+          sudo apt-get install -y zip
 
           zip -rj compare.zip src/
           diff compare.zip function.zip
