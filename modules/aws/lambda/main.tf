@@ -1,11 +1,11 @@
 resource "aws_lambda_function" "batch_job_function" {
-  filename         = "${path.module}/functions/batch_job_function/build/function.zip"
+  filename         = "${path.module}/functions/batch_job_function/function.zip"
   function_name    = "batch_job_function"
   handler          = "src/handler"
   role             = var.iam_lambda_function_role.arn
   memory_size      = 128
   runtime          = "python3.7"
-  source_code_hash = filebase64sha256("${path.module}/functions/batch_job_function/build/function.zip")
+  source_code_hash = filebase64sha256("${path.module}/functions/batch_job_function/function.zip")
 
   environment {
     variables = {
