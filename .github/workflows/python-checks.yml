@@ -44,7 +44,7 @@ jobs:
             src
 
       - name: Zip archiving check
-        working-directory: $ {{ matrix.WORK_DIR }}
+        working-directory: ${{ matrix.WORK_DIR }}
         run: \
           zip -rj compare.zip src/
           diff compare.zip function.zip
