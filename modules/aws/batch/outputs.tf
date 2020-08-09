@@ -1,15 +1,15 @@
-output "batch_job_definition_a" {
-  value = aws_batch_job_definition.batch_jobA
+output "job_a_definition" {
+  value = aws_batch_job_definition.jobA
 }
 
-output "batch_job_definition_b" {
-  value = aws_batch_job_definition.batch_jobB
+output "job_b_definition" {
+  value = aws_batch_job_definition.jobB
 }
 
-output "batch_compute_environment" {
-  value = aws_batch_compute_environment.batch_job_compute_environment
+output "compute_environment" {
+  value = aws_batch_compute_environment.compute_environment
 }
 
-output "batch_job_queue" {
-  value = aws_batch_job_queue.batch_job_queue
+output "job_queue" {
+  value = aws_batch_job_queue.job_queue
 }

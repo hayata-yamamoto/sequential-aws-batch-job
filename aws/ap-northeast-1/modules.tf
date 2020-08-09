@@ -10,14 +10,26 @@ module "batch" {
 
 module "cloudwatch" {
   source = "../../modules/aws/cloudwatch/"
+
+  lambda_batch_job_function = module.lambda.batch_job_function
 }
 
 module "lambda" {
   source = "../../modules/aws/lambda/"
+
+  batch_job_a_definition = module.batch.job_a_definition
+  batch_job_b_definition = module.batch.job_b_definition
+  batch_job_queue        = module.batch.job_queue
+
+  cloudwatch_lambda_invoke_event_rule = module.cloudwatch.lambda_invoke_event_rule
+
+  iam_lambda_function_role = module.iam.lambda_function_role
 }
 
 module "iam" {
   source = "../../modules/aws/iam"
+
+  batch_job_queue = module.batch.job_queue
 }
 
 module "vpc" {
