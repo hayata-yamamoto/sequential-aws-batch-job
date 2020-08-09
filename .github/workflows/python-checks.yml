@@ -31,11 +31,11 @@ jobs:
       - name: Install Dev Dependencies
         working-directory: ${{ matrix.WORK_DIR }}
         run: |
-          python -m venv .venv 
+          python3 -m venv .venv 
           source .venv/bin/python
 
           python -m pip install --upgrade pip 
-          pip install flake8 yapf mypy 
+          pip install flake8 yapf mypy boto3 
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Checks
