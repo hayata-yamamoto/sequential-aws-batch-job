@@ -6,7 +6,6 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| archive | n/a |
 | aws | n/a |
 
 ## Inputs
