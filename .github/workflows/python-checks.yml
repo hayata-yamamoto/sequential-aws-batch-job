@@ -46,7 +46,7 @@ jobs:
       - name: Zip archiving check
         working-directory: $ {{ matrix.WORK_DIR }}
         run: \
-          mkdir -p build/function/ build/layer/
+          mkdir -p build/function/
           cp -r src build/function/
 
           zip -rj compare.zip build/function/src/

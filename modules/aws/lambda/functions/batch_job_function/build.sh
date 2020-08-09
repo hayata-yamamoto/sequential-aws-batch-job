@@ -9,7 +9,7 @@ if [ -e "function.zip" ]; then
 fi 
 
 # Recreate build directory
-mkdir -p build/function/ build/layer/
+mkdir -p build/function/
 
 # Copy source files
 echo "Copy source files"
