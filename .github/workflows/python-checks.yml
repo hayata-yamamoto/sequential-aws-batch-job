@@ -46,8 +46,8 @@ jobs:
       - name: Zip archiving check
         working-directory: ${{ matrix.WORK_DIR }}
         run: \
-          sudo apt-get update
-          sudo apt-get install -y zip
+          apt-get update
+          apt-get install -y zip
 
           zip -rj compare.zip src/
           diff compare.zip function.zip
