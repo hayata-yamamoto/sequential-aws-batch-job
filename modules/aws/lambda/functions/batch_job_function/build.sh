@@ -4,6 +4,10 @@ if [ -d build ]; then
   rm -rf build
 fi
 
+if [ -e "function.zip" ]; then 
+  rm function.zip
+fi 
+
 # Recreate build directory
 mkdir -p build/function/ build/layer/
 
