@@ -1,11 +1,11 @@
 resource "aws_lambda_layer_version" "batch_job_function_layer" {
   layer_name       = "batch_job_function_layer"
-  filename         = "layers.zip"
+  filename         = "${path.module}/functions/batch_job_function/build/layers.zip"
   source_code_hash = filebase64sha256("${path.module}/functions/batch_job_function/build/layers.zip")
 }
 
 resource "aws_lambda_function" "batch_job_function" {
-  filename         = "function.zip"
+  filename         = "${path.module}/functions/batch_job_function/build/function.zip"
   function_name    = "batch_job_function"
   handler          = "src/handler"
   role             = var.iam_lambda_function_role.arn
