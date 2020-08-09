@@ -28,8 +28,6 @@ module "lambda" {
 
 module "iam" {
   source = "../../modules/aws/iam"
-
-  batch_job_queue = module.batch.job_queue
 }
 
 module "vpc" {

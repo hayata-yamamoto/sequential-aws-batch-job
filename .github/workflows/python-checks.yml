@@ -5,13 +5,14 @@ on:
 
 jobs:
   checks:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     strategy:
       matrix:
         PYTHON_VERSION: [3.6, 3.7, 3.8]
         WORK_DIR: ["./modules/aws/lambda/functions/batch_job_function"]
     steps:
       - uses: actions/checkout@v2
+
       - name: Setup python
         uses: actions/setup-python@v2
         with:
