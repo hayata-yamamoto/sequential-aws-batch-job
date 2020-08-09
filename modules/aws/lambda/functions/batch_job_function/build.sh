@@ -12,10 +12,9 @@ echo "Copy source files"
 cp -r src build/function/
 
 # Pack python libraries
-echo "Pack python libraries"
-pip3 install -r requirements.txt -t build/layer/python
+# echo "Pack python libraries"
+# pip3 install -r requirements.txt -t build/layer/python
 
-find build -type f | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm
+# find build -type f | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm
 
-zip -ru build/function.zip build/function
-zip -ru build/layers.zip build/layer
+zip -rj function.zip build/function/src/
