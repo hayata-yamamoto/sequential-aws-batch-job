@@ -5,8 +5,8 @@ import os
 
 def handler(event: Dict[str, Any], context: Any) -> None:
     """
-    This handler operates two AWS Batch jobs sequentially. 
-    Dependency is JobA <- jobB 
+    This handler operates two AWS Batch jobs sequentially.
+    Dependency is JobA <- jobB
     """
     client = boto3.client("batch")
 
