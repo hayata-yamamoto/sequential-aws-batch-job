@@ -17,5 +17,5 @@ pip3 install -r requirements.txt -t build/layer/python
 
 find build -type f | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm
 
-zip -u build/function.zip build/function
-zip -u build/layers.zip build/layer
+zip -ru build/function.zip build/function
+zip -ru build/layers.zip build/layer
