@@ -60,7 +60,6 @@ $ tfenv use 0.12.29
 
 # direnv if needed
 # https://github.com/direnv/direnv
-
 $ brew install direnv
 $ eval "$(direnv hook zsh)" # for zsh
 $ touch .envrc
